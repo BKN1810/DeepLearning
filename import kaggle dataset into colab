@@ -1,0 +1,29 @@
+# install the dependencies
+  !pip install kaggle
+  
+1 Sign in your kaggle Accout
+	* Ggo to "My Account" i.e 				
+		https://www.kaggle.com/username/account
+	* Then go to " Create New API Token".
+	* Select it and download "kaggle.json"
+	
+Now goto Colab,
+	from google.colab import files
+	files.upload() # upload kaggle.json file
+	
+!mkdir -p ~/.kaggle
+!cp kaggle.json ~/.kaggle/
+#Change the permission
+!chmod 600 ~/.kaggle/kaggle.json
+
+
+# To search Data set into Kaggle
+ !kaggle datasets list -s 'cats and dogs'
+
+#From Kaggle---selected data set--- Then  from "New Notbook": Copy API Command 
+
+#Paste "Copy API Command " into coalab and -p /content
+!kaggle datasets download -d balnyaupane/pneumonia-chest-xray-dataset-200-by-200-image -p /content
+
+# To unzip the Dataset
+!unzip -uq "/content/Source_Dataset_Name.Zip" -d "/content/Destination_Folder_Name"
